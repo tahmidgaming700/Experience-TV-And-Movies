@@ -21,3 +21,5 @@ android {
         jvmTarget = "17"
     }
 }
+
+// Shared module targets JVM 17 to match both Android applications.
