@@ -98,7 +98,7 @@ private fun TvHero(media: MediaTitle, onClick: () -> Unit) {
             Spacer(Modifier.height(10.dp))
             Text(media.synopsis, color = Color.White, maxLines = 3, fontSize = 13.sp, lineHeight = 18.sp)
             Spacer(Modifier.height(14.dp))
-            Text("▶   EXPLORE TITLE", color = TvBg, Modifier.clip(RoundedCornerShape(8.dp)).background(TvGold).padding(horizontal = 18.dp, vertical = 10.dp), fontWeight = FontWeight.Bold, fontSize = 12.sp)
+            Text("▶   EXPLORE TITLE", color = TvBg, modifier = Modifier.clip(RoundedCornerShape(8.dp)).background(TvGold).padding(horizontal = 18.dp, vertical = 10.dp), fontWeight = FontWeight.Bold, fontSize = 12.sp)
         }
     }
 }
