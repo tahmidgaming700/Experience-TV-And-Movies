@@ -8,7 +8,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.items as gridItems
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -152,7 +152,7 @@ private fun Section(title: String, items: List<MediaTitle>, onSelect: (MediaTitl
     Column(Modifier.padding(top = 18.dp)) {
         Text(title, Modifier.padding(horizontal = 20.dp, vertical = 10.dp), color = Color.White, fontSize = 19.sp, fontWeight = FontWeight.Bold)
         LazyRow(contentPadding = PaddingValues(horizontal = 18.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            items(items) { media ->
+            gridItems(items) { media ->
                 Column(Modifier.width(142.dp).clickable { onSelect(media) }) {
                     AsyncImage(media.artwork, media.name, Modifier.fillMaxWidth().height(190.dp).clip(RoundedCornerShape(12.dp)), contentScale = ContentScale.Crop)
                     Spacer(Modifier.height(7.dp))
