@@ -1,0 +1,23 @@
+name: Android TV
+on:
+  push:
+    paths: ['apps/android-tv/**', 'shared/**', 'gradle/**', 'build.gradle.kts', 'settings.gradle.kts', 'gradle.properties']
+  pull_request:
+    paths: ['apps/android-tv/**', 'shared/**', 'gradle/**', 'build.gradle.kts', 'settings.gradle.kts', 'gradle.properties']
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build Android TV APK
+        run: gradle :apps:android-tv:app:assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: experience-tv-android-tv-debug
+          path: apps/android-tv/app/build/outputs/apk/debug/*.apk
